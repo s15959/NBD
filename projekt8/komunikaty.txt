@@ -1,0 +1,3 @@
+{'name': 'Aconite', 'sunNeeds': 'Partial', 'maxHeight': 6, 'overwinter': False}
+{'name': 'Aconite', 'sunNeeds': 'Full', 'maxHeight': 6, 'overwinter': False}
+None
