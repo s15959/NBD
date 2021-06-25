@@ -1,0 +1,167 @@
+﻿[
+  {
+    "people": {
+"identity": 172,
+"labels": [
+        "Person"
+      ],
+"properties": {
+"name": "Joe Johnston",
+"born": 1950
+      }
+    },
+    "relatedTo": {
+"identity": 255,
+"start": 172,
+"end": 171,
+"type": "DIRECTED",
+"properties": {
+
+      }
+    },
+    "movie": {
+"identity": 171,
+"labels": [
+        "Movie"
+      ],
+"properties": {
+"tagline": "The first Avenger",
+"title": "Captain America",
+"released": 2011
+      }
+    }
+  },
+  {
+    "people": {
+"identity": 173,
+"labels": [
+        "Person"
+      ],
+"properties": {
+"name": "Christofer Markus",
+"born": 1970
+      }
+    },
+    "relatedTo": {
+"identity": 256,
+"start": 173,
+"end": 171,
+"type": "WROTE",
+"properties": {
+
+      }
+    },
+    "movie": {
+"identity": 171,
+"labels": [
+        "Movie"
+      ],
+"properties": {
+"tagline": "The first Avenger",
+"title": "Captain America",
+"released": 2011
+      }
+    }
+  },
+  {
+    "people": {
+"identity": 176,
+"labels": [
+        "Person"
+      ],
+"properties": {
+"name": "Samuel L. Jackson",
+"born": 1948
+      }
+    },
+    "relatedTo": {
+"identity": 254,
+"start": 176,
+"end": 171,
+"type": "ACTED_IN",
+"properties": {
+"roles": [
+          "Nick Fury"
+        ]
+      }
+    },
+    "movie": {
+"identity": 171,
+"labels": [
+        "Movie"
+      ],
+"properties": {
+"tagline": "The first Avenger",
+"title": "Captain America",
+"released": 2011
+      }
+    }
+  },
+  {
+    "people": {
+"identity": 175,
+"labels": [
+        "Person"
+      ],
+"properties": {
+"name": "Chris Evans",
+"born": 1981
+      }
+    },
+    "relatedTo": {
+"identity": 253,
+"start": 175,
+"end": 171,
+"type": "ACTED_IN",
+"properties": {
+"roles": [
+          "Steve Rogers",
+          "Captain America"
+        ]
+      }
+    },
+    "movie": {
+"identity": 171,
+"labels": [
+        "Movie"
+      ],
+"properties": {
+"tagline": "The first Avenger",
+"title": "Captain America",
+"released": 2011
+      }
+    }
+  },
+  {
+    "people": {
+"identity": 174,
+"labels": [
+        "Person"
+      ],
+"properties": {
+"name": "Stephen McFeely",
+"born": 1970
+      }
+    },
+    "relatedTo": {
+"identity": 257,
+"start": 174,
+"end": 171,
+"type": "WROTE",
+"properties": {
+
+      }
+    },
+    "movie": {
+"identity": 171,
+"labels": [
+        "Movie"
+      ],
+"properties": {
+"tagline": "The first Avenger",
+"title": "Captain America",
+"released": 2011
+      }
+    }
+  }
+]
