@@ -1,0 +1,14 @@
+printjson(
+    db.people.mapReduce(
+		function() {
+			emit(this.job, null); 
+		},
+		function(keys, values) { 
+			
+			return 0; 
+		},
+		{
+			out: {inline:1}
+		}
+	)
+);
