@@ -1,0 +1,182 @@
+1. Umieść w bazie (nazwa bucketa ma być Twoim numerem indeksu poprzedzonym literą „s”) 5 wartości, gdzie każda z nich ma być dokumentem json mającym 4 pola co najmniej dwóch różnych typów.
+
+C:\Users\nowac>curl -i -X PUT -H "Content-Type: application/json" -d "{"name": "Aconite", "sunNeeds": "Partial", "maxHeight": 6, "overwinter": false}" http://localhost:8098/buckets/s15959/keys/aconite
+HTTP/1.1 204 No Content
+Vary: Accept-Encoding
+Server: MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)
+Date: Thu, 24 Jun 2021 16:30:46 GMT
+Content-Type: application/json
+Content-Length: 0
+
+
+C:\Users\nowac>curl -i -X PUT -H "Content-Type: application/json" -d "{"name": "Lily", "sunNeeds": "Full", "maxHeight": 5, "overwinter": false}" http://localhost:8098/buckets/s15959/keys/lily
+HTTP/1.1 204 No Content
+Vary: Accept-Encoding
+Server: MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)
+Date: Thu, 24 Jun 2021 16:30:54 GMT
+Content-Type: application/json
+Content-Length: 0
+
+
+C:\Users\nowac>curl -i -X PUT -H "Content-Type: application/json" -d "{"name": "Geranium", "sunNeeds": "Full", "maxHeight": 6, "overwinter": false}" http://localhost:8098/buckets/s15959/keys/geranium
+HTTP/1.1 204 No Content
+Vary: Accept-Encoding
+Server: MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)
+Date: Thu, 24 Jun 2021 16:30:57 GMT
+Content-Type: application/json
+Content-Length: 0
+
+
+C:\Users\nowac>curl -i -X PUT -H "Content-Type: application/json" -d "{"name": "Columbine", "sunNeeds": "Partial", "maxHeight": 3, "overwinter": true}" http://localhost:8098/buckets/s15959/keys/columbine
+HTTP/1.1 204 No Content
+Vary: Accept-Encoding
+Server: MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)
+Date: Thu, 24 Jun 2021 16:31:01 GMT
+Content-Type: application/json
+Content-Length: 0
+
+
+C:\Users\nowac>curl -i -X PUT -H "Content-Type: application/json" -d "{"name": "Artemisia", "sunNeeds": "Full", "maxHeight": 4, "overwinter": false}" http://localhost:8098/buckets/s15959/keys/artemisia
+HTTP/1.1 204 No Content
+Vary: Accept-Encoding
+Server: MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)
+Date: Thu, 24 Jun 2021 16:31:04 GMT
+Content-Type: application/json
+Content-Length: 0
+
+
+2. Pobierz z bazy jedną z dodanych przez Ciebie wartości
+
+C:\Users\nowac>  curl -i http://localhost:8098/buckets/s15959/keys/artemisia
+HTTP/1.1 200 OK
+X-Riak-Vclock: a85hYGBgzGDKBVI8+xkWvj/jxKrMwKAumcGUyJjHyuCh73mLLwsA
+Vary: Accept-Encoding
+Server: MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)
+Link: </buckets/s15959>; rel="up"
+Last-Modified: Thu, 24 Jun 2021 16:31:04 GMT
+ETag: "FyXso2mm5VXRAcVFCD4h9"
+Date: Thu, 24 Jun 2021 16:33:02 GMT
+Content-Type: application/json
+Content-Length: 66
+
+{name: Artemisia, sunNeeds: Full, maxHeight: 4, overwinter: false}
+
+
+3. Zmodyfikuj jedną z wartości – dodając dodatkowe pole do dokumentu.
+
+C:\Users\nowac>curl -i -X PUT -H "Content-Type: application/json" -d "{"name": "Aconite", "sunNeeds": "Partial", "maxHeight": 6, "overwinter": false, "color" : "purple"}" http://localhost:8098/buckets/s15959/keys/aconite
+HTTP/1.1 204 No Content
+Vary: Accept-Encoding
+Server: MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)
+Date: Thu, 24 Jun 2021 16:35:30 GMT
+Content-Type: application/json
+Content-Length: 0
+
+{name: Aconite, sunNeeds: Partial, maxHeight: 6, overwinter: false, color : purple}
+
+
+4. Zmodyfikuj jedną z wartości – usuwając jedną pole z wybranego dokumentu.
+
+C:\Users\nowac>curl -i -X PUT -H "Content-Type: application/json" -d "{"name": "Geranium", "sunNeeds": "Full", "maxHeight": 6}" http://localhost:8098/buckets/s15959/keys/geranium
+HTTP/1.1 204 No Content
+Vary: Accept-Encoding
+Server: MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)
+Date: Thu, 24 Jun 2021 16:40:32 GMT
+Content-Type: application/json
+Content-Length: 0
+
+{name: Geranium, sunNeeds: Full, maxHeight: 6}
+
+
+5. Zmodyfikuj jedną z wartości – zmieniając wartość jednego z pól.
+
+C:\Users\nowac>curl http://localhost:8098/buckets/s15959/keys/artemisia
+{name: Artemisia, sunNeeds: Full, maxHeight: 4, overwinter: false}
+
+C:\Users\nowac>curl -i -X PUT -H "Content-Type: application/json" -d "{"name": "Artemisia", "sunNeeds": "Partial", "maxHeight": 4, "overwinter": false}" http://localhost:8098/buckets/s15959/keys/artemisia
+HTTP/1.1 204 No Content
+Vary: Accept-Encoding
+Server: MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)
+Date: Thu, 24 Jun 2021 16:45:21 GMT
+Content-Type: application/json
+Content-Length: 0
+
+C:\Users\nowac>curl http://localhost:8098/buckets/s15959/keys/artemisia
+{name: Artemisia, sunNeeds: Partial, maxHeight: 4, overwinter: false}
+
+
+6. Usuń jeden z dokumentów z bazy.
+
+C:\Users\nowac>curl -i -X DELETE http://localhost:8098/buckets/s15959/keys/artemisia
+HTTP/1.1 204 No Content
+Vary: Accept-Encoding
+Server: MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)
+Date: Thu, 24 Jun 2021 16:47:24 GMT
+Content-Type: application/json
+Content-Length: 0
+
+
+C:\Users\nowac>curl http://localhost:8098/buckets/s15959/keys/artemisia
+not found
+
+
+7. Spróbuj pobrać z bazy wartość, która nie istnieje w tej bazie.
+
+C:\Users\nowac>curl -i http://localhost:8098/buckets/s15959/keys/artemisia
+HTTP/1.1 404 Object Not Found
+Server: MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)
+Date: Thu, 24 Jun 2021 19:29:05 GMT
+Content-Type: text/plain
+Content-Length: 10
+
+not found
+
+
+
+8. Dodaj do bazy 1 dokument json (zawierający 1 pole), ale nie specyfikuj klucza.
+
+C:\Users\nowac>curl -i -X POST -H "Content-Type: application/json" -d "{"type1" : true}" http://localhost:8098/buckets/s15959/keys
+HTTP/1.1 201 Created
+Vary: Accept-Encoding
+Server: MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)
+Location: /buckets/s15959/keys/YcPG4BLZzNYoSwfiajp3HzRkOds
+Date: Thu, 24 Jun 2021 19:06:04 GMT
+Content-Type: application/json
+Content-Length: 0
+
+
+9. Pobierz z bazy element z zadania 8.
+
+C:\Users\nowac>curl http://localhost:8098/buckets/s15959/keys?keys=true
+{"keys":["artemisia\\","aconite","lily","YcPG4BLZzNYoSwfiajp3HzRkOds","geranium","columbine"]}
+
+
+C:\Users\nowac>curl -i http://localhost:8098/buckets/s15959/keys/YcPG4BLZzNYoSwfiajp3HzRkOds
+HTTP/1.1 200 OK
+X-Riak-Vclock: a85hYGBgzGDKBVI8+xkWvj8TZK7PwKAulMGUyJjHyjAn2PMWXxYA
+Vary: Accept-Encoding
+Server: MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)
+Link: </buckets/s15959>; rel="up"
+Last-Modified: Thu, 24 Jun 2021 19:06:04 GMT
+ETag: "3eYmkxipuBUdWMmjT4d5TI"
+Date: Thu, 24 Jun 2021 19:07:13 GMT
+Content-Type: application/json
+Content-Length: 14
+
+{type1 : true}
+
+
+10. Usuń z bazy element z zadania 8.
+
+C:\Users\nowac>curl -i -X DELETE http://localhost:8098/buckets/s15959/keys/YcPG4BLZzNYoSwfiajp3HzRkOds
+HTTP/1.1 204 No Content
+Vary: Accept-Encoding
+Server: MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)
+Date: Thu, 24 Jun 2021 19:15:15 GMT
+Content-Type: application/json
+Content-Length: 0
+
+
+C:\Users\nowac>curl http://localhost:8098/buckets/s15959/keys/YcPG4BLZzNYoSwfiajp3HzRkOds
+not found
+

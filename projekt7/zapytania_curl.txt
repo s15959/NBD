@@ -1,0 +1,67 @@
+1. Umieść w bazie (nazwa bucketa ma być Twoim numerem indeksu poprzedzonym literą „s”) 5 wartości, gdzie każda z nich ma być dokumentem json mającym 4 pola co najmniej dwóch różnych typów.
+
+curl -i -X PUT -H "Content-Type: application/json" -d "{"name": "Aconite", "sunNeeds": "Partial", "maxHeight": 6, "overwinter": false}" http://localhost:8098/buckets/s15959/keys/aconite
+curl -i -X PUT -H "Content-Type: application/json" -d "{"name": "Lily", "sunNeeds": "Full", "maxHeight": 5, "overwinter": false}" http://localhost:8098/buckets/s15959/keys/lily
+curl -i -X PUT -H "Content-Type: application/json" -d "{"name": "Geranium", "sunNeeds": "Full", "maxHeight": 6, "overwinter": false}" http://localhost:8098/buckets/s15959/keys/geranium
+curl -i -X PUT -H "Content-Type: application/json" -d "{"name": "Columbine", "sunNeeds": "Partial", "maxHeight": 3, "overwinter": true}" http://localhost:8098/buckets/s15959/keys/columbine
+curl -i -X PUT -H "Content-Type: application/json" -d "{"name": "Artemisia", "sunNeeds": "Full", "maxHeight": 4, "overwinter": false}" http://localhost:8098/buckets/s15959/keys/artemisia
+
+
+
+2. Pobierz z bazy jedną z dodanych przez Ciebie wartości
+
+curl -i http://localhost:8098/buckets/s15959/keys/artemisia
+
+
+
+3. Zmodyfikuj jedną z wartości – dodając dodatkowe pole do dokumentu.
+
+curl -i -X PUT -H "Content-Type: application/json" -d "{"name": "Aconite", "sunNeeds": "Partial", "maxHeight": 6, "overwinter": false, "color" : "purple"}" http://localhost:8098/buckets/s15959/keys/aconite
+
+
+
+4. Zmodyfikuj jedną z wartości – usuwając jedną pole z wybranego dokumentu.
+
+curl -i -X PUT -H "Content-Type: application/json" -d "{"name": "Geranium", "sunNeeds": "Full", "maxHeight": 6}" http://localhost:8098/buckets/s15959/keys/geranium
+
+
+
+5. Zmodyfikuj jedną z wartości – zmieniając wartość jednego z pól.
+
+curl -i -X PUT -H "Content-Type: application/json" -d "{"name": "Artemisia", "sunNeeds": "Partial", "maxHeight": 4, "overwinter": false}" http://localhost:8098/buckets/s15959/keys/artemisia
+
+
+
+
+6. Usuń jeden z dokumentów z bazy.
+
+curl -i -X DELETE http://localhost:8098/buckets/s15959/keys/artemisia
+
+
+
+7. Spróbuj pobrać z bazy wartość, która nie istnieje w tej bazie.
+
+curl -i http://localhost:8098/buckets/s15959/keys/artemisia
+
+
+
+8. Dodaj do bazy 1 dokument json (zawierający 1 pole), ale nie specyfikuj klucza.
+
+curl -i -X POST -H "Content-Type: application/json" -d "{"type1" : true}" http://localhost:8098/buckets/s15959/keys
+
+
+
+9. Pobierz z bazy element z zadania 8.
+
+curl http://localhost:8098/buckets/s15959/keys?keys=true
+
+curl -i http://localhost:8098/buckets/s15959/keys/YcPG4BLZzNYoSwfiajp3HzRkOds
+
+
+
+10. Usuń z bazy element z zadania 8.
+
+curl -i -X DELETE http://localhost:8098/buckets/s15959/keys/YcPG4BLZzNYoSwfiajp3HzRkOds
+
+
+

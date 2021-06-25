@@ -1,0 +1,12 @@
+HTTP/1.1 200 OK
+X-Riak-Vclock: a85hYGBgzGDKBVI8+xkWvj/jxKrMwKAumcGUyJjHyuCh73mLLwsA
+Vary: Accept-Encoding
+Server: MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)
+Link: </buckets/s15959>; rel="up"
+Last-Modified: Thu, 24 Jun 2021 16:31:04 GMT
+ETag: "FyXso2mm5VXRAcVFCD4h9"
+Date: Thu, 24 Jun 2021 16:33:02 GMT
+Content-Type: application/json
+Content-Length: 66
+
+{name: Artemisia, sunNeeds: Full, maxHeight: 4, overwinter: false}
