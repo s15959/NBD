@@ -1,0 +1,19 @@
+1. MATCH p=shortestPath((darjeeling :town {name:'Darjeeling'})-[*]-(sandakphu:peak {name:'Sandakphu'}))
+   RETURN p
+   
+   
+2. MATCH path=shortestPath((darjeeling :town {name:'Darjeeling'})-[*]-(sandakphu:peak{name:'Sandakphu'}))
+   WHERE ALL (x IN relationships(path) WHERE x.winter = 'true')
+   RETURN path
+   
+   
+
+	
+	
+4. MATCH (airport:Airport)<-[:ORIGIN]-(flight:Flight)
+   WITH airport, count(flight) as flights
+   RETURN airport, flights
+   ORDER BY flights ASC
+	
+	
+	
