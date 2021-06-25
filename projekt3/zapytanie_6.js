@@ -1,0 +1,27 @@
+printjson(db.people.insert({
+	"sex":"Female",
+	"first_name":"Zuzanna",
+	"last_name":"Nować",
+	"job":"Network engineer",
+	"email":"s15959@pjwstk.edu.com",
+	"location":{
+		"city":"Warsaw",
+		"address":{
+			"streetname":"Okopowa",
+			"streetnumber":"10"
+		}
+	},
+	"description":"Rimtimtim",
+	"height":"172.32",
+	"weight":"60.81",
+	"birth_date":"1997-05-11T06:30:00Z",
+	"nationality":"Poland",
+	"credit":[
+		{
+			"type":"switch",
+			"number":"348728374872387442",
+			"currency":"PLN",
+			"balance":"100.00"
+		}
+	]
+}));
